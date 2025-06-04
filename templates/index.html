@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Discounts</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        .coupon { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; }
+        .code { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Available Discounts</h1>
+    {% if coupons %}
+        {% for coupon in coupons %}
+            <div class="coupon">
+                <div class="code">{{ coupon.code }}</div>
+                <div class="description">{{ coupon.description }}</div>
+                <div class="expires">Expires on: {{ coupon.expires }}</div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No coupons are currently available.</p>
+    {% endif %}
+</body>
+</html>
